@@ -1,0 +1,64 @@
+{
+  "name": "@googlemaps/url-signature",
+  "version": "1.0.0",
+  "description": "Sign a URL for Google Maps Platform requests.",
+  "keywords": [
+    "google",
+    "maps",
+    "polyline"
+  ],
+  "homepage": "https://github.com/googlemaps/js-url-signature",
+  "bugs": {
+    "url": "https://github.com/googlemaps/js-url-signature/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/googlemaps/js-url-signature.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Justin Poehnelt",
+  "main": "dist/index.umd.js",
+  "unpkg": "dist/index.min.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "docs": "typedoc src/index.ts",
+    "format": "eslint . --fix",
+    "lint": "eslint .",
+    "prepare": "rm -rf dist && rollup -c",
+    "test": "jest src/*"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.1",
+    "@types/crypto-js": "^4.0.2",
+    "@types/jest": "^27.0.1",
+    "@typescript-eslint/eslint-plugin": ">=4.1.0",
+    "@typescript-eslint/parser": ">=4.1.0",
+    "babel": "^6.23.0",
+    "core-js": "^3.6.5",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "rollup": "^2.26.11",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-jest": "^26.4.1",
+    "typedoc": "^0.22.3",
+    "typescript": "^4.0.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://wombat-dressing-room.appspot.com"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  }
+}
