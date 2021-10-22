@@ -32,7 +32,7 @@
     "test": "jest src/*"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-env": "^7.15.8",
     "@types/crypto-js": "^4.0.2",
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": ">=4.33.0",
