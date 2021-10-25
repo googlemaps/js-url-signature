@@ -12,6 +12,8 @@
 
 Sign a URL for Google Maps Platform requests.
 
+> **Warning**: It is not recommended to use this library in client side applications to avoid exposing the secret used to sign the URL.
+
 ## Install
 
 Available via npm as the package [@googlemaps/url-signature](https://www.npmjs.com/package/@googlemaps/url-signature).

@@ -19,6 +19,7 @@ import {
   createSignature,
   signUrl,
 } from "./index";
+import { URL } from "url";
 
 describe("createSignatureForPathAndQuery", () => {
   test("get signature for path and query", () => {
@@ -77,6 +78,17 @@ describe("signUrl", () => {
     const unsignedUrl = new URL(
       "https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial"
     );
+    const clientSecret = "testClientSecret";
+
+    const signedUrl = signUrl(unsignedUrl, clientSecret);
+    expect(signedUrl.searchParams.get("signature")).toEqual(
+      "YRJoTd6ohbpsR14WkWv3S7H6MqU="
+    );
+  });
+
+  test("accepts string", () => {
+    const unsignedUrl =
+      "https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial";
     const clientSecret = "testClientSecret";
 
     const signedUrl = signUrl(unsignedUrl, clientSecret);

@@ -16,7 +16,8 @@
 
 import Base64 from "crypto-js/enc-base64";
 import HmacSHA1 from "crypto-js/hmac-sha1";
-import * as CryptoJS from "crypto-js";
+import CryptoJS from "crypto-js";
+import { URL } from "url";
 
 /**
  * Create a signature for a path and query string using HmacSHA1.
@@ -56,8 +57,9 @@ export function createSignature(
   unsignedUrl: URL | string,
   secret: string
 ): string {
-  unsignedUrl = new URL(unsignedUrl);
-
+  if (typeof unsignedUrl === "string") {
+    unsignedUrl = new URL(unsignedUrl);
+  }
   // Strip off the protocol, scheme, and host portions of the URL, leaving only the path and the query
   const pathAndQuery = `${unsignedUrl.pathname}${unsignedUrl.search}`;
 
@@ -77,8 +79,9 @@ export function createSignature(
  * @returns The signature of the signed url.
  */
 export function signUrl(unsignedUrl: URL | string, secret: string): URL {
-  unsignedUrl = new URL(unsignedUrl);
-
+  if (typeof unsignedUrl === "string") {
+    unsignedUrl = new URL(unsignedUrl);
+  }
   return new URL(
     unsignedUrl.toString() +
       "&signature=" +
