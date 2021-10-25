@@ -52,7 +52,10 @@ export function createSignatureForPathAndQuery(
  * @param secret The secret to use for signing.
  * @returns The signature of the signed url.
  */
-export function createSignature(unsignedUrl: URL, secret: string): string {
+export function createSignature(
+  unsignedUrl: URL | string,
+  secret: string
+): string {
   unsignedUrl = new URL(unsignedUrl);
 
   // Strip off the protocol, scheme, and host portions of the URL, leaving only the path and the query
