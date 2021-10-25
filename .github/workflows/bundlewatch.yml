@@ -12,20 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Build
-on: [push, pull_request]
+name: Bundlewatch
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [synchronize, opened]
+
 jobs:
-  test:
+  bundlewatch:
     runs-on: ubuntu-latest
-    steps:      
+    env:
+      CI_BRANCH_BASE: main
+    steps:
       - uses: actions/checkout@v2
-      - uses: actions/cache@v2
+      - uses: jackyef/bundlewatch-gh-action@b9753bc9b3ea458ff21069eaf6206e01e046f0b5
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm i
-      - run: npm run lint
-      - run: npm test
-      - uses: codecov/codecov-action@v1
+          build-script: npm i
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+          bundlewatch-config: .github/bundlewatch.config.json
