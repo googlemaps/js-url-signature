@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import Base64 from "crypto-js/enc-base64";
-import HmacSHA1 from "crypto-js/hmac-sha1";
-import CryptoJS from "crypto-js";
-import { URL } from "url";
+import Base64 from 'crypto-js/enc-base64';
+import HmacSHA1 from 'crypto-js/hmac-sha1';
+import CryptoJS from 'crypto-js';
+import {URL} from 'url';
 
 /**
  * Create a signature for a path and query string using HmacSHA1.
@@ -39,7 +39,7 @@ export function createSignatureForPathAndQuery(
     Base64
   );
   // Convert from true base64 to 'web safe' base64
-  return unsafeSignature.replace(/\+/g, "-").replace(/\//g, "_");
+  return unsafeSignature.replace(/\+/g, '-').replace(/\//g, '_');
 }
 
 /**
@@ -57,7 +57,7 @@ export function createSignature(
   unsignedUrl: URL | string,
   secret: string
 ): string {
-  if (typeof unsignedUrl === "string") {
+  if (typeof unsignedUrl === 'string') {
     unsignedUrl = new URL(unsignedUrl);
   }
   // Strip off the protocol, scheme, and host portions of the URL, leaving only the path and the query
@@ -79,19 +79,19 @@ export function createSignature(
  * @returns The signature of the signed url.
  */
 export function signUrl(unsignedUrl: URL | string, secret: string): URL {
-  if (typeof unsignedUrl === "string") {
+  if (typeof unsignedUrl === 'string') {
     unsignedUrl = new URL(unsignedUrl);
   }
   return new URL(
     unsignedUrl.toString() +
-      "&signature=" +
+      '&signature=' +
       createSignature(unsignedUrl, secret)
   );
 }
 
 function decodeSecret(secret: string): CryptoJS.lib.WordArray {
   // Convert from 'web safe' base64 to true base64
-  const unsafeSecret = secret.replace(/-/g, "+").replace(/_/g, "/");
+  const unsafeSecret = secret.replace(/-/g, '+').replace(/_/g, '/');
 
   // Base64 decode the secret
   return Base64.parse(unsafeSecret);

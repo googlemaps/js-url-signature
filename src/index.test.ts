@@ -18,82 +18,82 @@ import {
   createSignatureForPathAndQuery,
   createSignature,
   signUrl,
-} from "./index";
-import { URL } from "url";
+} from './index';
+import {URL} from 'url';
 
-describe("createSignatureForPathAndQuery", () => {
-  test("get signature for path and query", () => {
+describe('createSignatureForPathAndQuery', () => {
+  test('get signature for path and query', () => {
     const pathAndQuery =
-      "/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial";
-    const clientSecret = "testClientSecret";
+      '/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial';
+    const clientSecret = 'testClientSecret';
 
     expect(createSignatureForPathAndQuery(pathAndQuery, clientSecret)).toEqual(
-      "YRJoTd6ohbpsR14WkWv3S7H6MqU="
+      'YRJoTd6ohbpsR14WkWv3S7H6MqU='
     );
   });
 
-  test("get signature for path and no query", () => {
-    const pathAndQuery = "/maps/api/directions/json";
-    const clientSecret = "testClientSecret";
+  test('get signature for path and no query', () => {
+    const pathAndQuery = '/maps/api/directions/json';
+    const clientSecret = 'testClientSecret';
 
     expect(createSignatureForPathAndQuery(pathAndQuery, clientSecret)).toEqual(
-      "Xen-RmvzSOffHaCik-54z97Fbws="
+      'Xen-RmvzSOffHaCik-54z97Fbws='
     );
   });
 
-  test("get signature for no path and no query", () => {
-    const pathAndQuery = "";
-    const clientSecret = "testClientSecret";
+  test('get signature for no path and no query', () => {
+    const pathAndQuery = '';
+    const clientSecret = 'testClientSecret';
 
     expect(createSignatureForPathAndQuery(pathAndQuery, clientSecret)).toEqual(
-      "wPYDFS_2Q7bZi6lnUrkmKq0vM44="
+      'wPYDFS_2Q7bZi6lnUrkmKq0vM44='
     );
   });
 });
 
-describe("createSignature", () => {
-  test("create signature for URL", () => {
+describe('createSignature', () => {
+  test('create signature for URL', () => {
     const unsignedUrl = new URL(
-      "https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial"
+      'https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial'
     );
-    const clientSecret = "testClientSecret";
+    const clientSecret = 'testClientSecret';
 
     expect(createSignature(unsignedUrl, clientSecret)).toEqual(
-      "YRJoTd6ohbpsR14WkWv3S7H6MqU="
+      'YRJoTd6ohbpsR14WkWv3S7H6MqU='
     );
   });
-  test("create signature for string", () => {
+  test('create signature for string', () => {
     const unsignedUrl =
-      "https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial";
-    const clientSecret = "testClientSecret";
+      'https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial';
+    const clientSecret = 'testClientSecret';
 
     expect(createSignature(unsignedUrl, clientSecret)).toEqual(
-      "YRJoTd6ohbpsR14WkWv3S7H6MqU="
+      'YRJoTd6ohbpsR14WkWv3S7H6MqU='
     );
   });
 });
 
-describe("signUrl", () => {
-  test("signed URL has correct signature parameter", () => {
+describe('signUrl', () => {
+  test('signed URL has correct signature parameter', () => {
     const unsignedUrl = new URL(
-      "https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial"
+      'https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial'
     );
-    const clientSecret = "testClientSecret";
+    const clientSecret = 'testClientSecret';
 
     const signedUrl = signUrl(unsignedUrl, clientSecret);
-    expect(signedUrl.searchParams.get("signature")).toEqual(
-      "YRJoTd6ohbpsR14WkWv3S7H6MqU="
+    expect(signedUrl.searchParams.get('signature')).toEqual(
+      'YRJoTd6ohbpsR14WkWv3S7H6MqU='
     );
   });
 
-  test("accepts string", () => {
+  test('accepts string', () => {
     const unsignedUrl =
-      "https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial";
-    const clientSecret = "testClientSecret";
+      'https://test.url/maps/api/directions/json?avoid=ferries&client=testClient&destination=38.8977%2C-77.0365&mode=driving&origin=33.8121%2C-117.9190&units=imperial';
+    const clientSecret = 'testClientSecret';
 
     const signedUrl = signUrl(unsignedUrl, clientSecret);
-    expect(signedUrl.searchParams.get("signature")).toEqual(
-      "YRJoTd6ohbpsR14WkWv3S7H6MqU="
+    expect(signedUrl.searchParams.get('signature')).toEqual(
+      'YRJoTd6ohbpsR14WkWv3S7H6MqU='
     );
   });
 });

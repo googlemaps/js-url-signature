@@ -15,8 +15,8 @@
  */
 
 module.exports = {
-  out: "docs",
-  exclude: ["**/node_modules/**", "**/*.spec.ts", "**/*.test.ts"],
+  out: 'docs',
+  exclude: ['**/node_modules/**', '**/*.spec.ts', '**/*.test.ts'],
   excludePrivate: true,
   excludeExternals: true,
 };
