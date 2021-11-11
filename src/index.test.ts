@@ -19,7 +19,6 @@ import {
   createSignature,
   signUrl,
 } from "./index";
-import { URL } from "url";
 
 describe("createSignatureForPathAndQuery", () => {
   test("get signature for path and query", () => {
