@@ -17,7 +17,6 @@
 import Base64 from "crypto-js/enc-base64";
 import HmacSHA1 from "crypto-js/hmac-sha1";
 import CryptoJS from "crypto-js";
-import { URL } from "url";
 
 /**
  * Create a signature for a path and query string using HmacSHA1.
