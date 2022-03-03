@@ -1,6 +1,6 @@
 {
   "name": "@googlemaps/url-signature",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Sign a URL for Google Maps Platform requests.",
   "keywords": [
     "google",
