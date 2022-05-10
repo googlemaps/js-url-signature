@@ -1,7 +1,7 @@
 # Google Maps JavaScript URL Signing
 
 [![npm](https://img.shields.io/npm/v/@googlemaps/url-signature)](https://www.npmjs.com/package/@googlemaps/url-signature)
-![Build](https://github.com/googlemaps/js-url-signature/workflows/Build/badge.svg)
+![Build](https://github.com/googlemaps/js-url-signature/workflows/Test/badge.svg)
 ![Release](https://github.com/googlemaps/js-url-signature/workflows/Release/badge.svg)
 [![codecov](https://codecov.io/gh/googlemaps/js-url-signature/branch/main/graph/badge.svg)](https://codecov.io/gh/googlemaps/js-url-signature)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/js-url-signature?color=green)
