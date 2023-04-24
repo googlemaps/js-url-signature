@@ -12,29 +12,29 @@
 <div class="col-content">
 <div class="tsd-page-title">
 <h2>@googlemaps/url-signature</h2></div>
-<div class="tsd-panel tsd-typography"><a id="md:google-maps-javascript-url-signing" class="tsd-anchor"></a><h1><a href="#$google-maps-javascript-url-signing" style="color:inherit;text-decoration:none">Google Maps JavaScript URL Signing</a></h1><p><a href="https://www.npmjs.com/package/@googlemaps/url-signature"><img src="https://img.shields.io/npm/v/@googlemaps/url-signature" alt="npm"></a>
+<div class="tsd-panel tsd-typography"><a id="md:google-maps-javascript-url-signing" class="tsd-anchor"></a><h1><a href="#md:google-maps-javascript-url-signing">Google Maps JavaScript URL Signing</a></h1><p><a href="https://www.npmjs.com/package/@googlemaps/url-signature"><img src="https://img.shields.io/npm/v/@googlemaps/url-signature" alt="npm"></a>
 <img src="https://github.com/googlemaps/js-url-signature/workflows/Test/badge.svg" alt="Build">
 <img src="https://github.com/googlemaps/js-url-signature/workflows/Release/badge.svg" alt="Release">
 <a href="https://codecov.io/gh/googlemaps/js-url-signature"><img src="https://codecov.io/gh/googlemaps/js-url-signature/branch/main/graph/badge.svg" alt="codecov"></a>
 <img src="https://img.shields.io/github/contributors/googlemaps/js-url-signature?color=green" alt="GitHub contributors">
 <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a>
 <a href="https://github.com/apps/in-solidarity"><img src="https://github.com/jpoehnelt/in-solidarity-bot/raw/main/static//badge-flat.png" alt=""></a></p>
-<a id="md:description" class="tsd-anchor"></a><h2><a href="#$description" style="color:inherit;text-decoration:none">Description</a></h2><p>Sign a URL for Google Maps Platform requests.</p>
+<a id="md:description" class="tsd-anchor"></a><h2><a href="#md:description">Description</a></h2><p>Sign a URL for Google Maps Platform requests.</p>
 <blockquote>
 <p><strong>Warning</strong>: It is not recommended to use this library in client side applications to avoid exposing the secret used to sign the URL.</p>
 </blockquote>
-<a id="md:install" class="tsd-anchor"></a><h2><a href="#$install" style="color:inherit;text-decoration:none">Install</a></h2><p>Available via npm as the package <a href="https://www.npmjs.com/package/@googlemaps/url-signature">@googlemaps/url-signature</a>.</p>
+<a id="md:install" class="tsd-anchor"></a><h2><a href="#md:install">Install</a></h2><p>Available via npm as the package <a href="https://www.npmjs.com/package/@googlemaps/url-signature">@googlemaps/url-signature</a>.</p>
 <p><code>npm i @googlemaps/url-signature</code></p>
-<a id="md:documentation" class="tsd-anchor"></a><h2><a href="#$documentation" style="color:inherit;text-decoration:none">Documentation</a></h2><p>Check out the <a href="https://googlemaps.github.io/js-url-signature/index.html">reference documentation</a>.</p>
-<a id="md:example" class="tsd-anchor"></a><h2><a href="#$example" style="color:inherit;text-decoration:none">Example</a></h2><p>Create a signature for a Google Maps request <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL</a> or url string.</p>
+<a id="md:documentation" class="tsd-anchor"></a><h2><a href="#md:documentation">Documentation</a></h2><p>Check out the <a href="https://googlemaps.github.io/js-url-signature/index.html">reference documentation</a>.</p>
+<a id="md:example" class="tsd-anchor"></a><h2><a href="#md:example">Example</a></h2><p>Create a signature for a Google Maps request <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL</a> or url string.</p>
 <pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">signature</span><span class="hl-1"> = </span><span class="hl-3">createSignature</span><span class="hl-1">(</span><span class="hl-4">&quot;https://example.com/some-path?foo=bar&quot;</span><span class="hl-1">, </span><span class="hl-4">&quot;secret&quot;</span><span class="hl-1">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 <p>Returns a new <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL</a> having a signature parameter.</p>
 <pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">signedUrl</span><span class="hl-1"> = </span><span class="hl-3">signUrl</span><span class="hl-1">(</span><span class="hl-4">&quot;https://example.com/some-path?foo=bar&quot;</span><span class="hl-1">, </span><span class="hl-4">&quot;secret&quot;</span><span class="hl-1">);</span><br/><span class="hl-5">signedUrl</span><span class="hl-1">.</span><span class="hl-5">href</span><span class="hl-1">; </span><span class="hl-6">// &quot;https://example.com/some-path?foo=bar&amp;signature=...&quot;</span>
-</code></pre>
+</code><button>Copy</button></pre>
 <p>Create a signature for a path and query string using Hmac SHA1.</p>
 <pre><code class="language-ts"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">signature</span><span class="hl-1"> = </span><span class="hl-3">createSignatureForPathAndQuery</span><span class="hl-1">(</span><span class="hl-4">&quot;/some-path?foo=bar&quot;</span><span class="hl-1">, </span><span class="hl-4">&quot;secret&quot;</span><span class="hl-1">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 <blockquote>
 <p><strong>Note</strong>: This is not an officially supported Google product</p>
 </blockquote>
