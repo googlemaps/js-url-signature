@@ -22,14 +22,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Checkout
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.SYNCED_GITHUB_TOKEN_REPO }}
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -41,15 +41,16 @@ jobs:
           npm run lint
           npm test
       - name: Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         with:
+          semantic_version: 19
           extra_plugins: |
-            @semantic-release/commit-analyzer
+            @semantic-release/commit-analyzer@^9
             semantic-release-interval
-            @semantic-release/release-notes-generator
+            @semantic-release/release-notes-generator@^10
             @semantic-release/git
-            @semantic-release/github
-            @semantic-release/npm
+            @semantic-release/github@^8
+            @semantic-release/npm@^9
             @googlemaps/semantic-release-config
             semantic-release-npm-deprecate
         env:
