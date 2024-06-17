@@ -57,7 +57,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^29.1.4",
     "typedoc": "^0.25.0",
-    "typescript": "^4.4.4"
+    "typescript": "^5.4.5"
   },
   "publishConfig": {
     "access": "public",
